@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLDTModelStoreContainer" CdmEntityContainer="QLDTEntities">
+    <EntitySetMapping Name="BOMONs">
+      <EntityTypeMapping TypeName="QLDTModel.BOMON">
+        <MappingFragment StoreEntitySet="BOMON">
+          <ScalarProperty Name="MABM" ColumnName="MABM" />
+          <ScalarProperty Name="TENBM" ColumnName="TENBM" />
+          <ScalarProperty Name="PHONG" ColumnName="PHONG" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="TRUONGBM" ColumnName="TRUONGBM" />
+          <ScalarProperty Name="MAKHOA" ColumnName="MAKHOA" />
+          <ScalarProperty Name="NGAYNHANCHUC" ColumnName="NGAYNHANCHUC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHUDEs">
+      <EntityTypeMapping TypeName="QLDTModel.CHUDE">
+        <MappingFragment StoreEntitySet="CHUDE">
+          <ScalarProperty Name="MACD" ColumnName="MACD" />
+          <ScalarProperty Name="TENCD" ColumnName="TENCD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONGVIECs">
+      <EntityTypeMapping TypeName="QLDTModel.CONGVIEC">
+        <MappingFragment StoreEntitySet="CONGVIEC">
+          <ScalarProperty Name="MADT" ColumnName="MADT" />
+          <ScalarProperty Name="SOTT" ColumnName="SOTT" />
+          <ScalarProperty Name="TENCV" ColumnName="TENCV" />
+          <ScalarProperty Name="NGAYBD" ColumnName="NGAYBD" />
+          <ScalarProperty Name="NGAYKT" ColumnName="NGAYKT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETAIs">
+      <EntityTypeMapping TypeName="QLDTModel.DETAI">
+        <MappingFragment StoreEntitySet="DETAI">
+          <ScalarProperty Name="MADT" ColumnName="MADT" />
+          <ScalarProperty Name="TENDT" ColumnName="TENDT" />
+          <ScalarProperty Name="CAPQL" ColumnName="CAPQL" />
+          <ScalarProperty Name="KINHPHI" ColumnName="KINHPHI" />
+          <ScalarProperty Name="NGAYBD" ColumnName="NGAYBD" />
+          <ScalarProperty Name="NGAYKT" ColumnName="NGAYKT" />
+          <ScalarProperty Name="MACD" ColumnName="MACD" />
+          <ScalarProperty Name="GVCNDT" ColumnName="GVCNDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIAOVIENs">
+      <EntityTypeMapping TypeName="QLDTModel.GIAOVIEN">
+        <MappingFragment StoreEntitySet="GIAOVIEN">
+          <ScalarProperty Name="MAGV" ColumnName="MAGV" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="LUONG" ColumnName="LUONG" />
+          <ScalarProperty Name="PHAI" ColumnName="PHAI" />
+          <ScalarProperty Name="NGSINH" ColumnName="NGSINH" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="GVQLCM" ColumnName="GVQLCM" />
+          <ScalarProperty Name="MABM" ColumnName="MABM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHOAs">
+      <EntityTypeMapping TypeName="QLDTModel.KHOA">
+        <MappingFragment StoreEntitySet="KHOA">
+          <ScalarProperty Name="MAKHOA" ColumnName="MAKHOA" />
+          <ScalarProperty Name="TENKHOA" ColumnName="TENKHOA" />
+          <ScalarProperty Name="NAMTL" ColumnName="NAMTL" />
+          <ScalarProperty Name="PHONG" ColumnName="PHONG" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="TRUONGKHOA" ColumnName="TRUONGKHOA" />
+          <ScalarProperty Name="NGAYNHANCHUC" ColumnName="NGAYNHANCHUC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGUOITHANs">
+      <EntityTypeMapping TypeName="QLDTModel.NGUOITHAN">
+        <MappingFragment StoreEntitySet="NGUOITHAN">
+          <ScalarProperty Name="MAGV" ColumnName="MAGV" />
+          <ScalarProperty Name="TEN" ColumnName="TEN" />
+          <ScalarProperty Name="NGSINH" ColumnName="NGSINH" />
+          <ScalarProperty Name="PHAI" ColumnName="PHAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QLDTModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THAMGIADTs">
+      <EntityTypeMapping TypeName="QLDTModel.THAMGIADT">
+        <MappingFragment StoreEntitySet="THAMGIADT">
+          <ScalarProperty Name="MAGV" ColumnName="MAGV" />
+          <ScalarProperty Name="MADT" ColumnName="MADT" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="PHUCAP" ColumnName="PHUCAP" />
+          <ScalarProperty Name="KETQUA" ColumnName="KETQUA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Giáo_dục_miễn_phí">
+      <EntityTypeMapping TypeName="QLDTModel.Giáo_dục_miễn_phí">
+        <MappingFragment StoreEntitySet="Giáo dục miễn phí">
+          <ScalarProperty Name="MAKHOA" ColumnName="MAKHOA" />
+          <ScalarProperty Name="TENKHOA" ColumnName="TENKHOA" />
+          <ScalarProperty Name="NAMTL" ColumnName="NAMTL" />
+          <ScalarProperty Name="PHONG" ColumnName="PHONG" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="TRUONGKHOA" ColumnName="TRUONGKHOA" />
+          <ScalarProperty Name="NGAYNHANCHUC" ColumnName="NGAYNHANCHUC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="QLDTModel.Store.Chart" FunctionImportName="Chart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLDTModel.Chart_Result">
+          <ScalarProperty Name="MABM" ColumnName="MABM" />
+          <ScalarProperty Name="Percent_" ColumnName="Percent_" />
+          <ScalarProperty Name="explode" ColumnName="explode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QLDTModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QLDTModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QLDTModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="SP_GIAOVIEN" FunctionName="QLDTModel.Store.SP_GIAOVIEN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLDTModel.SP_GIAOVIEN_Result">
+          <ScalarProperty Name="MABM" ColumnName="MABM" />
+          <ScalarProperty Name="TENBM" ColumnName="TENBM" />
+          <ScalarProperty Name="PHONG" ColumnName="PHONG" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="TRUONGBM" ColumnName="TRUONGBM" />
+          <ScalarProperty Name="MAKHOA" ColumnName="MAKHOA" />
+          <ScalarProperty Name="NGAYNHANCHUC" ColumnName="NGAYNHANCHUC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GIAOVIEN1" FunctionName="QLDTModel.Store.SP_GIAOVIEN1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLDTModel.SP_GIAOVIEN1_Result">
+          <ScalarProperty Name="MABM" ColumnName="MABM" />
+          <ScalarProperty Name="TENBM" ColumnName="TENBM" />
+          <ScalarProperty Name="PHONG" ColumnName="PHONG" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="TRUONGBM" ColumnName="TRUONGBM" />
+          <ScalarProperty Name="MAKHOA" ColumnName="MAKHOA" />
+          <ScalarProperty Name="NGAYNHANCHUC" ColumnName="NGAYNHANCHUC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="QLDTModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLDTModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="QLDTModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLDTModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QLDTModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="SP_TEST1" FunctionName="QLDTModel.Store.SP_TEST1" />
+    <FunctionImportMapping FunctionImportName="SP_TEST2" FunctionName="QLDTModel.Store.SP_TEST2" />
+    <FunctionImportMapping FunctionImportName="SP_TEST3" FunctionName="QLDTModel.Store.SP_TEST3" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QLDTModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

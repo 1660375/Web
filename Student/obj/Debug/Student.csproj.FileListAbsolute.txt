@@ -1,0 +1,13 @@
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\obj\Debug\Student.csprojAssemblyReference.cache
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\bin\Debug\Student.exe.config
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\bin\Debug\Student.exe
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\bin\Debug\Student.pdb
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\bin\Debug\EntityFramework.dll
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\bin\Debug\EntityFramework.xml
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\obj\Debug\Student.csproj.CopyComplete
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\obj\Debug\Student.exe
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\obj\Debug\Student.pdb
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student\bin\Debug\Newtonsoft.Json.xml

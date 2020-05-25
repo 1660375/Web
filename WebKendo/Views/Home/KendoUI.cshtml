@@ -1,0 +1,265 @@
+﻿
+@{
+    ViewBag.Title = "KendoUI";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.common.min.css" rel="stylesheet" />
+<link href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
+
+<h2>KendoUI</h2>
+
+<div id="example">
+    <div id="grid"></div>
+</div>
+
+<div class="box wide">
+    <h4>Console log</h4>
+    <div class="console"></div>
+</div>
+
+<style>
+    div.console div {
+        height: auto;
+    }
+</style>
+
+<script>
+
+    $(document).ready(function () {
+
+
+        var crudServiceBaseUrl = "https://localhost:44325/api/BOMONs",
+            dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: crudServiceBaseUrl,
+                        dataType: "json"
+                    },
+                    update: {
+                        url: crudServiceBaseUrl+"/put",
+                        dataType: "json",
+                        type: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                            'Access-Control-Allow-Origin': '*',
+                            "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
+                            'Access-Control-Allow-Headers': ' Origin, Content-Type, X-Auth-Token'
+                        }
+                    },
+                    destroy: {
+                        url: crudServiceBaseUrl +"/delete",
+                        type: "delete",
+                        dataType: "json",
+                        headers: {
+                            "Content-Type": "application/json",
+                            'Access-Control-Allow-Origin': '*',
+                            "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
+                            'Access-Control-Allow-Headers': ' Origin, Content-Type, X-Auth-Token'
+                        }
+
+                    },
+                    create: {
+                        url: crudServiceBaseUrl+"/post",
+                        type: "post",
+                        dataType: "json",
+                        headers: {
+                            "Content-Type": "application/json",
+                            'Access-Control-Allow-Origin': '*',
+                            "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
+                            'Access-Control-Allow-Headers': ' Origin, Content-Type, X-Auth-Token'
+                        }
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation != "read" && options.models) {
+                            console.log(kendo.stringify(options.models));
+
+                            return kendo.stringify(options.models)
+                        }
+                    }
+                },
+                batch: true,
+                pageSize: 20,
+                schema: {
+                    model: {
+                        id: "MABM",
+                        fields: {
+                            MABM: {editable: isEditable, nullable: true },
+                            TENBM: { type: "string" },
+                            PHONG: { type: "string" },
+                            DIENTHOAI: { type: "string" },
+                            TRUONGBM: { type: "string" },
+                            MAKHOA: { type: "string" },
+                            NGAYNHANCHUC: { type: "date" }
+                        }
+                    }
+                }
+            });
+        $("#grid").kendoGrid({
+             sortable: true,
+            dataSource: dataSource,
+            filterable: {
+                extra: false,
+                operators: {
+                    string: {
+                        startswith: "Starts with",
+                        eq: "Is equal to",
+                        neq: "Is not equal to"
+                    }
+                }
+            },
+            pageable: true,
+            height: 550,
+            toolbar: [
+                { name: "create" },
+                { name: "search" }
+              
+            ],
+            columns: [
+                {
+                    field: "MABM",
+                   filterable: false,
+                    title: "Mã Bộ Môn",
+                    editable: isEditable
+                },
+                {
+                    field: "TENBM",
+                    editable: false,
+                    title: "Tên Bộ Môn"
+                },
+                {
+                    field: "PHONG",
+                    title: "Phòng",
+
+                },
+                {
+                    field: "DIENTHOAI",
+                    title: "Điện thoại"
+                },
+                {
+                    field: "TRUONGBM",
+                    title: "Trưởng Bộ Môn",
+                    editor: categoryDropDownEditorTBM,
+                    filterable: {
+                        ui: giaovienFilter
+                    }
+                },
+                {
+                    field: "MAKHOA",
+                    title: "Mã Khoa",
+                    editor: categoryDropDownEditor,
+                    filterable: {
+                        ui: makhoaFilter
+                    }
+                },
+                {
+                    field: "NGAYNHANCHUC",
+                    title: "Ngày nhận chức",
+                    template: "#= kendo.toString(kendo.parseDate(NGAYNHANCHUC, 'yyyy-MM-dd'), 'MM/dd/yyyy') #"
+                },
+                {
+                    command: ["edit", "destroy"],
+                    title: "&nbsp;",
+                    width: "250px"
+                }],
+
+            editable: "popup",
+            edit: function (e) {
+                if (e.model.isNew() == false) {
+                    $('input[name=MABM]').parent().html(e.model.firstName);
+                }
+            }
+        });
+
+    });
+
+    function categoryDropDownEditor(container, options) {
+        //  $('<input required name="' + options.field + '"/>')
+            $('<input type="text" class="k-textbox k-valid" id="MAKHOA" name="MAKHOA" title="Mã Khoa" data-bind="value:MAKHOA">')
+            .appendTo(container)
+            .kendoDropDownList({
+                autoBind: false,
+                dataTextField: "MAKHOA",
+                dataValueField: "MAKHOA",
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "https://localhost:44325/api/KHOAs",
+                            type: 'get',
+                            dataType: "json"
+                        }
+                    }
+                }
+            });
+    }
+
+    function makhoaFilter(element) {
+        element.kendoDropDownList({
+             dataTextField: "MAKHOA",
+                dataValueField: "MAKHOA",
+            dataSource: {
+                transport: {
+                        read: {
+                            url: "https://localhost:44325/api/KHOAs",
+                            type: 'get',
+                            dataType: "json"
+                        }
+                    }
+            },
+            optionLabel: "--Select Value--"
+        });
+    }
+
+    function giaovienFilter(element) {
+        element.kendoDropDownList({
+            dataTextField: "MAGV",
+            dataValueField: "MAGV",
+            dataSource: {
+                transport: {
+                        read: {
+                            url: "https://localhost:44325/api/GIAOVIENs",
+                            type: 'get',
+                            dataType: "json"
+                        }
+                    }
+            },
+            optionLabel: "--Select Value--"
+        });
+    }
+    
+    function categoryDropDownEditorTBM(container, options) {
+        //  $('<input required name="' + options.field + '"/>')
+        $('<input type="text" class="k-textbox" id="TRUONGBM" name="TRUONGBM" title="Trưởng Bộ Môn" data-bind="value:TRUONGBM">')
+            .appendTo(container)
+            .kendoDropDownList({
+                placeholder: null,
+                dataTextField: "MAGV",
+                dataValueField: "MAGV",
+                filter: "contains",
+                autoBind: true,
+                valueTemplate: '#: data.MAGV # - #: data.HOTEN #',
+                template:  '<span class="k-state-default"><p>#: data.MAGV # - #: data.HOTEN #</p></span>',
+                minLength: 3,
+                dataSource: {
+                    serverFiltering: true,
+                    transport: {
+                        read: {
+                            url: "https://localhost:44325/api/GIAOVIENs",
+                            type: 'get',
+                            dataType: "json"
+                        }
+                    }
+                }
+            });
+    }
+
+    function isEditable(e) {
+        var dataSource = $("#grid").data("kendoGrid").dataSource;
+        //If the id(ProductID) is null, then it is editable.
+        return (e.MABM == null) 
+    }
+
+ 
+</script>
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bad6dd405611495081f7260d9fabe53f" Name="Diagram1" ZoomLevel="33">
+        <EntityTypeShape EntityType="QLDTModel.BOMON" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.CHUDE" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.CONGVIEC" Width="1.5" PointX="9.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.DETAI" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.GIAOVIEN" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.KHOA" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.NGUOITHAN" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="QLDTModel.THAMGIADT" Width="1.5" PointX="12" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.Giáo_dục_miễn_phí" Width="1.5" PointX="2.75" PointY="9.25" IsExpanded="true" />
+        <AssociationConnector Association="QLDTModel.FK_HG10_MAKHOA" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_HG11_TRUONGBM" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_HG9_MABM" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_HG3_MACD" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_HG1_MADT" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_HG2_MADT" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_HG4_GVCNDT" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_HG5_MAGV" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_HG6_GVQLCM" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_HG7_TRUONGKHOA" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_HG8_MAGV" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

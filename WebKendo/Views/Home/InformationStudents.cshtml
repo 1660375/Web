@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "InformationStudents";
+}
+
+<h2>InformationStudents</h2>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.common.min.css" rel="stylesheet" />
+<link href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
+<div id="example">
+    <div id="grid"></div>
+
+    <script>
+        $(document).ready(function () {
+            var crudServiceBaseUrl = "https://localhost:44373/api/Students",
+                dataSource = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: crudServiceBaseUrl ,
+                            dataType: "json"
+                        },
+                        update: {
+                            url: crudServiceBaseUrl,
+                            dataType: "json",
+                            typr: 'put'
+                        },
+                        destroy: {
+                            url: crudServiceBaseUrl ,
+                            dataType: "json",
+                            typr: 'delete'
+                        },
+                        create: {
+                            url: crudServiceBaseUrl,
+                            dataType: "json",
+                            typr: 'post'
+                        },
+                        parameterMap: function (options, operation) {
+                            if (operation !== "read" && options.models) {
+                                console.log(kendo.stringify(options.models))
+                                return {
+                                    models: kendo.stringify(options.models)
+                                };
+                            }
+                        }
+                    },
+                    batch: true,
+                    pageSize: 20,
+                    schema: {
+                        model: {
+                            id: "StudentID",
+                            fields: {
+                                StudentID: {type: 'number'},
+                                StudentName: { type:"string" },
+                                DateOfBirth: { type: "date" },
+                                Height: { type: "number" },
+                                Weight: { type: "number" },
+                                Address: { type: "string" },
+                                XepLoai: { type: "string" },
+                                HocLuc: { type: "string" }
+                            }
+                        }
+                    }
+                });
+            $("#grid").kendoGrid({
+                dataSource: dataSource,
+                pageable: true,
+                height: 550,
+                toolbar: ["create"],
+                columns: [
+                    { field: "StudentName", title: "Studen tName" },
+                    { field: "DateOfBirth", title: "Date Of Birth", template: "#= kendo.toString(kendo.parseDate(DateOfBirth, 'yyyy-MM-dd'), 'MM/dd/yyyy') #" },
+                    { field: "Height", title: "Height" },
+                    { field: "Weight", title: "Weight" },
+                    { field: "Address", title: "Address" },
+                    { field: "XepLoai", title: "Xếp Loại", editor: categoryDropDownXepLoai },
+                    { field: "HocLuc", title: "Học Lực", editor: categoryDropDownHocLuc, },
+                    { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }],
+                editable: "popup"
+            });
+        });
+
+        function categoryDropDownXepLoai(container, options) {
+            //  $('<input required name="' + options.field + '"/>')
+            $('<input type="text" class="k-textbox" id="XepLoai" name="XepLoai" title="Xếp Loại" data-bind="value:XepLoai">')
+                .appendTo(container)
+                .kendoDropDownList({
+                    autoBind: false,
+                    dataTextField: "Name",
+                    dataValueField: "ID",
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: "https://localhost:44373/api/XepLoais",
+                                type: 'get',
+                                dataType: "json"
+                            }
+                        }
+                    }
+                });
+        }
+        function categoryDropDownHocLuc(container, options) {
+            //  $('<input required name="' + options.field + '"/>')
+            $('<input type="text" class="k-textbox" id="HocLuc" name="HocLuc" title="Học Lực" data-bind="value:HocLuc">')
+                .appendTo(container)
+                .kendoDropDownList({
+                    autoBind: false,
+                    dataTextField: "Name",
+                    dataValueField: "ID",
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: "https://localhost:44373/api/HocLucs",
+                                type: 'get',
+                                dataType: "json"
+                            }
+                        }
+                    }
+                });
+        }
+    </script>
+</div>
+

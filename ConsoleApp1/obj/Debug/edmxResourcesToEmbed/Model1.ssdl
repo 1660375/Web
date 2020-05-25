@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLDTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BOMON">
+    <Key>
+      <PropertyRef Name="MABM" />
+    </Key>
+    <Property Name="MABM" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="TENBM" Type="nchar" MaxLength="50" />
+    <Property Name="PHONG" Type="char" MaxLength="3" />
+    <Property Name="DIENTHOAI" Type="char" MaxLength="11" />
+    <Property Name="TRUONGBM" Type="nchar" MaxLength="3" />
+    <Property Name="MAKHOA" Type="nchar" MaxLength="4" />
+    <Property Name="NGAYNHANCHUC" Type="date" />
+  </EntityType>
+  <EntityType Name="CHUDE">
+    <Key>
+      <PropertyRef Name="MACD" />
+    </Key>
+    <Property Name="MACD" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="TENCD" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="CONGVIEC">
+    <Key>
+      <PropertyRef Name="MADT" />
+      <PropertyRef Name="SOTT" />
+    </Key>
+    <Property Name="MADT" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="SOTT" Type="int" Nullable="false" />
+    <Property Name="TENCV" Type="nvarchar" MaxLength="50" />
+    <Property Name="NGAYBD" Type="datetime" />
+    <Property Name="NGAYKT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DETAI">
+    <Key>
+      <PropertyRef Name="MADT" />
+    </Key>
+    <Property Name="MADT" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="TENDT" Type="nvarchar" MaxLength="50" />
+    <Property Name="CAPQL" Type="nchar" MaxLength="20" />
+    <Property Name="KINHPHI" Type="float" />
+    <Property Name="NGAYBD" Type="date" />
+    <Property Name="NGAYKT" Type="date" />
+    <Property Name="MACD" Type="nchar" MaxLength="4" />
+    <Property Name="GVCNDT" Type="nchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="GIAOVIEN">
+    <Key>
+      <PropertyRef Name="MAGV" />
+    </Key>
+    <Property Name="MAGV" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="HOTEN" Type="nvarchar" MaxLength="50" />
+    <Property Name="LUONG" Type="float" />
+    <Property Name="PHAI" Type="nchar" MaxLength="3" />
+    <Property Name="NGSINH" Type="date" />
+    <Property Name="DIACHI" Type="nchar" MaxLength="50" />
+    <Property Name="GVQLCM" Type="nchar" MaxLength="3" />
+    <Property Name="MABM" Type="nchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="KHOA">
+    <Key>
+      <PropertyRef Name="MAKHOA" />
+    </Key>
+    <Property Name="MAKHOA" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="TENKHOA" Type="nvarchar" MaxLength="50" />
+    <Property Name="NAMTL" Type="int" />
+    <Property Name="PHONG" Type="char" MaxLength="3" />
+    <Property Name="DIENTHOAI" Type="char" MaxLength="10" />
+    <Property Name="TRUONGKHOA" Type="nchar" MaxLength="3" />
+    <Property Name="NGAYNHANCHUC" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NGUOITHAN">
+    <Key>
+      <PropertyRef Name="MAGV" />
+      <PropertyRef Name="TEN" />
+    </Key>
+    <Property Name="MAGV" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="TEN" Type="nchar" MaxLength="12" Nullable="false" />
+    <Property Name="NGSINH" Type="datetime" />
+    <Property Name="PHAI" Type="nchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="THAMGIADT">
+    <Key>
+      <PropertyRef Name="MAGV" />
+      <PropertyRef Name="MADT" />
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="MAGV" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="MADT" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="STT" Type="int" Nullable="false" />
+    <Property Name="PHUCAP" Type="float" />
+    <Property Name="KETQUA" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLDT.dbo.Giáo dục miễn phí' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Giáo dục miễn phí">
+    <Key>
+      <PropertyRef Name="MAKHOA" />
+    </Key>
+    <Property Name="MAKHOA" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="TENKHOA" Type="nvarchar" MaxLength="50" />
+    <Property Name="NAMTL" Type="int" />
+    <Property Name="PHONG" Type="char" MaxLength="3" />
+    <Property Name="DIENTHOAI" Type="char" MaxLength="10" />
+    <Property Name="TRUONGKHOA" Type="nchar" MaxLength="3" />
+    <Property Name="NGAYNHANCHUC" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QLDT.dbo.TestView' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TestView">
+          <Property Name="HOTEN" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <Association Name="FK_HG1_MADT">
+    <End Role="CONGVIEC" Type="Self.CONGVIEC" Multiplicity="1" />
+    <End Role="THAMGIADT" Type="Self.THAMGIADT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONGVIEC">
+        <PropertyRef Name="MADT" />
+        <PropertyRef Name="SOTT" />
+      </Principal>
+      <Dependent Role="THAMGIADT">
+        <PropertyRef Name="MADT" />
+        <PropertyRef Name="STT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG10_MAKHOA">
+    <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+    <End Role="BOMON" Type="Self.BOMON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHOA">
+        <PropertyRef Name="MAKHOA" />
+      </Principal>
+      <Dependent Role="BOMON">
+        <PropertyRef Name="MAKHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG11_TRUONGBM">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="0..1" />
+    <End Role="BOMON" Type="Self.BOMON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="BOMON">
+        <PropertyRef Name="TRUONGBM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG2_MADT">
+    <End Role="DETAI" Type="Self.DETAI" Multiplicity="1" />
+    <End Role="CONGVIEC" Type="Self.CONGVIEC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DETAI">
+        <PropertyRef Name="MADT" />
+      </Principal>
+      <Dependent Role="CONGVIEC">
+        <PropertyRef Name="MADT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG3_MACD">
+    <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="0..1" />
+    <End Role="DETAI" Type="Self.DETAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUDE">
+        <PropertyRef Name="MACD" />
+      </Principal>
+      <Dependent Role="DETAI">
+        <PropertyRef Name="MACD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG4_GVCNDT">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="0..1" />
+    <End Role="DETAI" Type="Self.DETAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="DETAI">
+        <PropertyRef Name="GVCNDT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG5_MAGV">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="1" />
+    <End Role="THAMGIADT" Type="Self.THAMGIADT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="THAMGIADT">
+        <PropertyRef Name="MAGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG6_GVQLCM">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="0..1" />
+    <End Role="GIAOVIEN1" Type="Self.GIAOVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="GIAOVIEN1">
+        <PropertyRef Name="GVQLCM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG7_TRUONGKHOA">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="0..1" />
+    <End Role="KHOA" Type="Self.KHOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="KHOA">
+        <PropertyRef Name="TRUONGKHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG8_MAGV">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="1" />
+    <End Role="NGUOITHAN" Type="Self.NGUOITHAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="NGUOITHAN">
+        <PropertyRef Name="MAGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG9_MABM">
+    <End Role="BOMON" Type="Self.BOMON" Multiplicity="0..1" />
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOMON">
+        <PropertyRef Name="MABM" />
+      </Principal>
+      <Dependent Role="GIAOVIEN">
+        <PropertyRef Name="MABM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Chart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="MABM" Type="varchar" MaxLength="4" />
+          <Property Name="Percent_" Type="float" />
+          <Property Name="explode" Type="bit" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GIAOVIEN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaKhoa" Type="varchar" Mode="In" />
+    <Parameter Name="MaBM" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GIAOVIEN1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaBM" Type="varchar" Mode="In" />
+    <Parameter Name="MaKhoa" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_TEST1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaBM" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_TEST2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaBM" Type="varchar" Mode="In" />
+    <Parameter Name="MaKhoa" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_TEST3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaBM" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="QLDTModelStoreContainer">
+    <EntitySet Name="BOMON" EntityType="Self.BOMON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHUDE" EntityType="Self.CHUDE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONGVIEC" EntityType="Self.CONGVIEC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DETAI" EntityType="Self.DETAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIAOVIEN" EntityType="Self.GIAOVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NGUOITHAN" EntityType="Self.NGUOITHAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THAMGIADT" EntityType="Self.THAMGIADT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Giáo dục miễn phí" EntityType="Self.Giáo dục miễn phí" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Giáo dục miễn phí].[MAKHOA] AS [MAKHOA], 
+    [Giáo dục miễn phí].[TENKHOA] AS [TENKHOA], 
+    [Giáo dục miễn phí].[NAMTL] AS [NAMTL], 
+    [Giáo dục miễn phí].[PHONG] AS [PHONG], 
+    [Giáo dục miễn phí].[DIENTHOAI] AS [DIENTHOAI], 
+    [Giáo dục miễn phí].[TRUONGKHOA] AS [TRUONGKHOA], 
+    [Giáo dục miễn phí].[NGAYNHANCHUC] AS [NGAYNHANCHUC]
+    FROM [dbo].[Giáo dục miễn phí] AS [Giáo dục miễn phí]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_HG1_MADT" Association="Self.FK_HG1_MADT">
+      <End Role="CONGVIEC" EntitySet="CONGVIEC" />
+      <End Role="THAMGIADT" EntitySet="THAMGIADT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG10_MAKHOA" Association="Self.FK_HG10_MAKHOA">
+      <End Role="KHOA" EntitySet="KHOA" />
+      <End Role="BOMON" EntitySet="BOMON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG11_TRUONGBM" Association="Self.FK_HG11_TRUONGBM">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+      <End Role="BOMON" EntitySet="BOMON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG2_MADT" Association="Self.FK_HG2_MADT">
+      <End Role="DETAI" EntitySet="DETAI" />
+      <End Role="CONGVIEC" EntitySet="CONGVIEC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG3_MACD" Association="Self.FK_HG3_MACD">
+      <End Role="CHUDE" EntitySet="CHUDE" />
+      <End Role="DETAI" EntitySet="DETAI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG4_GVCNDT" Association="Self.FK_HG4_GVCNDT">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+      <End Role="DETAI" EntitySet="DETAI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG5_MAGV" Association="Self.FK_HG5_MAGV">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+      <End Role="THAMGIADT" EntitySet="THAMGIADT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG6_GVQLCM" Association="Self.FK_HG6_GVQLCM">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+      <End Role="GIAOVIEN1" EntitySet="GIAOVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG7_TRUONGKHOA" Association="Self.FK_HG7_TRUONGKHOA">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+      <End Role="KHOA" EntitySet="KHOA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG8_MAGV" Association="Self.FK_HG8_MAGV">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+      <End Role="NGUOITHAN" EntitySet="NGUOITHAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG9_MABM" Association="Self.FK_HG9_MABM">
+      <End Role="BOMON" EntitySet="BOMON" />
+      <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

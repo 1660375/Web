@@ -1,0 +1,13 @@
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\bin\Debug\Student_Class.exe.config
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\bin\Debug\Student_Class.exe
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\bin\Debug\Student_Class.pdb
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\bin\Debug\EntityFramework.dll
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\bin\Debug\EntityFramework.xml
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\bin\Debug\Newtonsoft.Json.xml
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\obj\Debug\Student_Class.csprojAssemblyReference.cache
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\obj\Debug\Student_Class.csproj.CopyComplete
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\obj\Debug\Student_Class.exe
+C:\Users\nghia.dangnhon\source\repos\WebKendo\Student_Class\obj\Debug\Student_Class.pdb

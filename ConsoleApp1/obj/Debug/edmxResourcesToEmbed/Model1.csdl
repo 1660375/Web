@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLDTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="Chart_Result">
+    <Property Name="MABM" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Percent_" Type="Double" />
+    <Property Name="explode" Type="Boolean" />
+  </ComplexType>
+  <EntityType Name="BOMON">
+    <Key>
+      <PropertyRef Name="MABM" />
+    </Key>
+    <Property Name="MABM" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TENBM" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="PHONG" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="DIENTHOAI" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="TRUONGBM" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="MAKHOA" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="NGAYNHANCHUC" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="KHOA" Relationship="Self.FK_HG10_MAKHOA" FromRole="BOMON" ToRole="KHOA" />
+    <NavigationProperty Name="GIAOVIEN" Relationship="Self.FK_HG11_TRUONGBM" FromRole="BOMON" ToRole="GIAOVIEN" />
+    <NavigationProperty Name="GIAOVIENs" Relationship="Self.FK_HG9_MABM" FromRole="BOMON" ToRole="GIAOVIEN" />
+  </EntityType>
+  <EntityType Name="CHUDE">
+    <Key>
+      <PropertyRef Name="MACD" />
+    </Key>
+    <Property Name="MACD" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TENCD" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DETAIs" Relationship="Self.FK_HG3_MACD" FromRole="CHUDE" ToRole="DETAI" />
+  </EntityType>
+  <EntityType Name="CONGVIEC">
+    <Key>
+      <PropertyRef Name="MADT" />
+      <PropertyRef Name="SOTT" />
+    </Key>
+    <Property Name="MADT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SOTT" Type="Int32" Nullable="false" />
+    <Property Name="TENCV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYBD" Type="DateTime" Precision="3" />
+    <Property Name="NGAYKT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="THAMGIADTs" Relationship="Self.FK_HG1_MADT" FromRole="CONGVIEC" ToRole="THAMGIADT" />
+    <NavigationProperty Name="DETAI" Relationship="Self.FK_HG2_MADT" FromRole="CONGVIEC" ToRole="DETAI" />
+  </EntityType>
+  <EntityType Name="DETAI">
+    <Key>
+      <PropertyRef Name="MADT" />
+    </Key>
+    <Property Name="MADT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TENDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CAPQL" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="KINHPHI" Type="Double" />
+    <Property Name="NGAYBD" Type="DateTime" Precision="0" />
+    <Property Name="NGAYKT" Type="DateTime" Precision="0" />
+    <Property Name="MACD" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="GVCNDT" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="CHUDE" Relationship="Self.FK_HG3_MACD" FromRole="DETAI" ToRole="CHUDE" />
+    <NavigationProperty Name="CONGVIECs" Relationship="Self.FK_HG2_MADT" FromRole="DETAI" ToRole="CONGVIEC" />
+    <NavigationProperty Name="GIAOVIEN" Relationship="Self.FK_HG4_GVCNDT" FromRole="DETAI" ToRole="GIAOVIEN" />
+  </EntityType>
+  <EntityType Name="GIAOVIEN">
+    <Key>
+      <PropertyRef Name="MAGV" />
+    </Key>
+    <Property Name="MAGV" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LUONG" Type="Double" />
+    <Property Name="PHAI" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="NGSINH" Type="DateTime" Precision="0" />
+    <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="GVQLCM" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="MABM" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="BOMONs" Relationship="Self.FK_HG11_TRUONGBM" FromRole="GIAOVIEN" ToRole="BOMON" />
+    <NavigationProperty Name="BOMON" Relationship="Self.FK_HG9_MABM" FromRole="GIAOVIEN" ToRole="BOMON" />
+    <NavigationProperty Name="DETAIs" Relationship="Self.FK_HG4_GVCNDT" FromRole="GIAOVIEN" ToRole="DETAI" />
+    <NavigationProperty Name="THAMGIADTs" Relationship="Self.FK_HG5_MAGV" FromRole="GIAOVIEN" ToRole="THAMGIADT" />
+    <NavigationProperty Name="GIAOVIEN1" Relationship="Self.FK_HG6_GVQLCM" FromRole="GIAOVIEN" ToRole="GIAOVIEN1" />
+    <NavigationProperty Name="GIAOVIEN2" Relationship="Self.FK_HG6_GVQLCM" FromRole="GIAOVIEN1" ToRole="GIAOVIEN" />
+    <NavigationProperty Name="KHOAs" Relationship="Self.FK_HG7_TRUONGKHOA" FromRole="GIAOVIEN" ToRole="KHOA" />
+    <NavigationProperty Name="NGUOITHANs" Relationship="Self.FK_HG8_MAGV" FromRole="GIAOVIEN" ToRole="NGUOITHAN" />
+  </EntityType>
+  <EntityType Name="KHOA">
+    <Key>
+      <PropertyRef Name="MAKHOA" />
+    </Key>
+    <Property Name="MAKHOA" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TENKHOA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NAMTL" Type="Int32" />
+    <Property Name="PHONG" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="DIENTHOAI" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TRUONGKHOA" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="NGAYNHANCHUC" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BOMONs" Relationship="Self.FK_HG10_MAKHOA" FromRole="KHOA" ToRole="BOMON" />
+    <NavigationProperty Name="GIAOVIEN" Relationship="Self.FK_HG7_TRUONGKHOA" FromRole="KHOA" ToRole="GIAOVIEN" />
+  </EntityType>
+  <EntityType Name="NGUOITHAN">
+    <Key>
+      <PropertyRef Name="MAGV" />
+      <PropertyRef Name="TEN" />
+    </Key>
+    <Property Name="MAGV" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TEN" Type="String" MaxLength="12" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="NGSINH" Type="DateTime" Precision="3" />
+    <Property Name="PHAI" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="GIAOVIEN" Relationship="Self.FK_HG8_MAGV" FromRole="NGUOITHAN" ToRole="GIAOVIEN" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="THAMGIADT">
+    <Key>
+      <PropertyRef Name="MAGV" />
+      <PropertyRef Name="MADT" />
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="MAGV" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MADT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="STT" Type="Int32" Nullable="false" />
+    <Property Name="PHUCAP" Type="Double" />
+    <Property Name="KETQUA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CONGVIEC" Relationship="Self.FK_HG1_MADT" FromRole="THAMGIADT" ToRole="CONGVIEC" />
+    <NavigationProperty Name="GIAOVIEN" Relationship="Self.FK_HG5_MAGV" FromRole="THAMGIADT" ToRole="GIAOVIEN" />
+  </EntityType>
+  <EntityType Name="Giáo_dục_miễn_phí">
+    <Key>
+      <PropertyRef Name="MAKHOA" />
+    </Key>
+    <Property Name="MAKHOA" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TENKHOA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NAMTL" Type="Int32" />
+    <Property Name="PHONG" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="DIENTHOAI" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TRUONGKHOA" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="NGAYNHANCHUC" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_HG10_MAKHOA">
+    <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+    <End Role="BOMON" Type="Self.BOMON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHOA">
+        <PropertyRef Name="MAKHOA" />
+      </Principal>
+      <Dependent Role="BOMON">
+        <PropertyRef Name="MAKHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG11_TRUONGBM">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="0..1" />
+    <End Role="BOMON" Type="Self.BOMON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="BOMON">
+        <PropertyRef Name="TRUONGBM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG9_MABM">
+    <End Role="BOMON" Type="Self.BOMON" Multiplicity="0..1" />
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOMON">
+        <PropertyRef Name="MABM" />
+      </Principal>
+      <Dependent Role="GIAOVIEN">
+        <PropertyRef Name="MABM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG3_MACD">
+    <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="0..1" />
+    <End Role="DETAI" Type="Self.DETAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUDE">
+        <PropertyRef Name="MACD" />
+      </Principal>
+      <Dependent Role="DETAI">
+        <PropertyRef Name="MACD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG1_MADT">
+    <End Role="CONGVIEC" Type="Self.CONGVIEC" Multiplicity="1" />
+    <End Role="THAMGIADT" Type="Self.THAMGIADT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONGVIEC">
+        <PropertyRef Name="MADT" />
+        <PropertyRef Name="SOTT" />
+      </Principal>
+      <Dependent Role="THAMGIADT">
+        <PropertyRef Name="MADT" />
+        <PropertyRef Name="STT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG2_MADT">
+    <End Role="DETAI" Type="Self.DETAI" Multiplicity="1" />
+    <End Role="CONGVIEC" Type="Self.CONGVIEC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DETAI">
+        <PropertyRef Name="MADT" />
+      </Principal>
+      <Dependent Role="CONGVIEC">
+        <PropertyRef Name="MADT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG4_GVCNDT">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="0..1" />
+    <End Role="DETAI" Type="Self.DETAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="DETAI">
+        <PropertyRef Name="GVCNDT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG5_MAGV">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="1" />
+    <End Role="THAMGIADT" Type="Self.THAMGIADT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="THAMGIADT">
+        <PropertyRef Name="MAGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG6_GVQLCM">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="0..1" />
+    <End Role="GIAOVIEN1" Type="Self.GIAOVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="GIAOVIEN1">
+        <PropertyRef Name="GVQLCM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG7_TRUONGKHOA">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="0..1" />
+    <End Role="KHOA" Type="Self.KHOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="KHOA">
+        <PropertyRef Name="TRUONGKHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HG8_MAGV">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="1" />
+    <End Role="NGUOITHAN" Type="Self.NGUOITHAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="NGUOITHAN">
+        <PropertyRef Name="MAGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLDTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BOMONs" EntityType="Self.BOMON" />
+    <EntitySet Name="CHUDEs" EntityType="Self.CHUDE" />
+    <EntitySet Name="CONGVIECs" EntityType="Self.CONGVIEC" />
+    <EntitySet Name="DETAIs" EntityType="Self.DETAI" />
+    <EntitySet Name="GIAOVIENs" EntityType="Self.GIAOVIEN" />
+    <EntitySet Name="KHOAs" EntityType="Self.KHOA" />
+    <EntitySet Name="NGUOITHANs" EntityType="Self.NGUOITHAN" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="THAMGIADTs" EntityType="Self.THAMGIADT" />
+    <EntitySet Name="Giáo_dục_miễn_phí" EntityType="Self.Giáo_dục_miễn_phí" />
+    <AssociationSet Name="FK_HG10_MAKHOA" Association="Self.FK_HG10_MAKHOA">
+      <End Role="KHOA" EntitySet="KHOAs" />
+      <End Role="BOMON" EntitySet="BOMONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG11_TRUONGBM" Association="Self.FK_HG11_TRUONGBM">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIENs" />
+      <End Role="BOMON" EntitySet="BOMONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG9_MABM" Association="Self.FK_HG9_MABM">
+      <End Role="BOMON" EntitySet="BOMONs" />
+      <End Role="GIAOVIEN" EntitySet="GIAOVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG3_MACD" Association="Self.FK_HG3_MACD">
+      <End Role="CHUDE" EntitySet="CHUDEs" />
+      <End Role="DETAI" EntitySet="DETAIs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG1_MADT" Association="Self.FK_HG1_MADT">
+      <End Role="CONGVIEC" EntitySet="CONGVIECs" />
+      <End Role="THAMGIADT" EntitySet="THAMGIADTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG2_MADT" Association="Self.FK_HG2_MADT">
+      <End Role="DETAI" EntitySet="DETAIs" />
+      <End Role="CONGVIEC" EntitySet="CONGVIECs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG4_GVCNDT" Association="Self.FK_HG4_GVCNDT">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIENs" />
+      <End Role="DETAI" EntitySet="DETAIs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG5_MAGV" Association="Self.FK_HG5_MAGV">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIENs" />
+      <End Role="THAMGIADT" EntitySet="THAMGIADTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG6_GVQLCM" Association="Self.FK_HG6_GVQLCM">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIENs" />
+      <End Role="GIAOVIEN1" EntitySet="GIAOVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG7_TRUONGKHOA" Association="Self.FK_HG7_TRUONGKHOA">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIENs" />
+      <End Role="KHOA" EntitySet="KHOAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HG8_MAGV" Association="Self.FK_HG8_MAGV">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIENs" />
+      <End Role="NGUOITHAN" EntitySet="NGUOITHANs" />
+    </AssociationSet>
+    <FunctionImport Name="Chart" IsComposable="true" ReturnType="Collection(QLDTModel.Chart_Result)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GIAOVIEN" ReturnType="Collection(QLDTModel.SP_GIAOVIEN_Result)">
+      <Parameter Name="MaKhoa" Mode="In" Type="String" />
+      <Parameter Name="MaBM" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GIAOVIEN1" ReturnType="Collection(QLDTModel.SP_GIAOVIEN1_Result)">
+      <Parameter Name="MaBM" Mode="In" Type="String" />
+      <Parameter Name="MaKhoa" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(QLDTModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(QLDTModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_TEST1">
+      <Parameter Name="MaBM" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_TEST2">
+      <Parameter Name="MaBM" Mode="In" Type="String" />
+      <Parameter Name="MaKhoa" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_TEST3">
+      <Parameter Name="MaBM" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="SP_GIAOVIEN_Result">
+    <Property Type="String" Name="MABM" Nullable="false" MaxLength="4" />
+    <Property Type="String" Name="TENBM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PHONG" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="DIENTHOAI" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="TRUONGBM" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="MAKHOA" Nullable="true" MaxLength="4" />
+    <Property Type="DateTime" Name="NGAYNHANCHUC" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_GIAOVIEN1_Result">
+    <Property Type="String" Name="MABM" Nullable="false" MaxLength="4" />
+    <Property Type="String" Name="TENBM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PHONG" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="DIENTHOAI" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="TRUONGBM" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="MAKHOA" Nullable="true" MaxLength="4" />
+    <Property Type="DateTime" Name="NGAYNHANCHUC" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
