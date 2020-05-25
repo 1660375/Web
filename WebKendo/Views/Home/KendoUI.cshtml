@@ -35,7 +35,15 @@
                 transport: {
                     read: {
                         url: crudServiceBaseUrl,
-                        dataType: "json"
+                        dataType: "json",
+                        success: function (data) {
+                            alert("OK");
+                        },
+                        error: function (xhr, error) {
+                            alert(error);
+                            console.debug(xhr);
+                            console.debug(error);
+                        }
                     },
                     update: {
                         url: crudServiceBaseUrl+"/put",
@@ -46,6 +54,14 @@
                             'Access-Control-Allow-Origin': '*',
                             "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
                             'Access-Control-Allow-Headers': ' Origin, Content-Type, X-Auth-Token'
+                        },
+                          success: function (data) {
+                            alert("OK");
+                        },
+                        error: function (xhr, error) {
+                            alert(error);
+                            console.debug(xhr);
+                            console.debug(error);
                         }
                     },
                     destroy: {
@@ -57,11 +73,18 @@
                             'Access-Control-Allow-Origin': '*',
                             "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
                             'Access-Control-Allow-Headers': ' Origin, Content-Type, X-Auth-Token'
+                        },
+                          success: function (data) {
+                            alert("OK");
+                        },
+                        error: function (xhr, error) {
+                            alert(error);
+                            console.debug(xhr);
+                            console.debug(error);
                         }
-
                     },
                     create: {
-                        url: crudServiceBaseUrl+"/post",
+                        url: crudServiceBaseUrl + "/post",
                         type: "post",
                         dataType: "json",
                         headers: {
@@ -69,6 +92,14 @@
                             'Access-Control-Allow-Origin': '*',
                             "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
                             'Access-Control-Allow-Headers': ' Origin, Content-Type, X-Auth-Token'
+                        },
+                        success: function (data) {
+                            alert("OK");
+                        },
+                        error: function (xhr, error) {
+                            alert(error);
+                            console.debug(xhr);
+                            console.debug(error);
                         }
                     },
                     parameterMap: function (options, operation) {

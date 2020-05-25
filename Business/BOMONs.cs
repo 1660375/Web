@@ -134,10 +134,8 @@ namespace Business
         {
             using (QLDTEntities db = new QLDTEntities())
             {
-               
-                    db.Dispose();
-            
-            ((IDisposable)db).Dispose();
+                db.Dispose();
+                ((IDisposable)db).Dispose();
             }
         }
 
